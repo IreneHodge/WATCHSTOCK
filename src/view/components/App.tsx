@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { SampleData } from "../../sampleData";
+import AddToWatchList from "./AddToWatchList";
 
 interface AppProps {
   title: string;
@@ -12,6 +13,7 @@ const App: FC<AppProps> = ({ title, subtitle }) => {
     <>
       <h1>{title}</h1>
       <h2>{subtitle}</h2>
+      <AddToWatchList />
     </>
   );
 };
