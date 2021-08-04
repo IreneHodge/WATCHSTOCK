@@ -2,24 +2,10 @@ const axios = require("axios");
 const express = require("express");
 import { Request, Response } from "express";
 const router = express.Router();
+import { CompanyData } from "../../interfaces";
 
 require("dotenv").config();
 const TOKEN = process.env.TOKEN;
-
-interface CompanyData {
-  logo: String;
-  ceo: String;
-  url: String;
-  description: String;
-  exchange: String;
-  name: String;
-  symbol: String;
-  similar: String[];
-  open: Number;
-  high: Number;
-  low: Number;
-  close: Number;
-}
 
 router.route("/").get((req: Request, res: Response) => {
   const ticker = req.query.search;
@@ -50,7 +36,7 @@ router.route("/").get((req: Request, res: Response) => {
             logo: data.logo,
             ceo: data.ceo,
             url: data.url,
-            description: data.url,
+            description: data.description,
             exchange: data.exchange,
             name: data.name,
             symbol: data.symbol,
