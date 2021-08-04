@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect } from "react";
+import axios from "axios";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -22,11 +23,36 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const App: FC = () => {
-  const [ticker, setTicker] = useState(String);
+  const [companyData, setCompanyData] = useState(Object);
   const [search, setSearch] = useState(``);
   const classes = useStyles();
 
-  //   const checkWatchList
+  const companySearch: Function = () => {
+    // let config: any = {
+    //   method: "get",
+    //   options: {
+    //     params: {
+    //       search: search,
+    //     },
+    //   },
+    //   url: `http://localhost:3000/search`,
+    //   headers: {},
+    // };
+    let options: any = {
+      params: {
+        search: search,
+      },
+    };
+
+    axios
+      .get(`http://localhost:3000/search`, options)
+      .then((data: Object) => {
+        console.log(data);
+      })
+      .catch((err: Error) => {
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
     console.log("successfully loaded page");
@@ -45,7 +71,11 @@ const App: FC = () => {
           </Grid>
           <Grid item xs={8}>
             <Paper className={classes.paper}>
-              <SearchBar setSearch={setSearch} search={search} />
+              <SearchBar
+                companySearch={companySearch}
+                setSearch={setSearch}
+                search={search}
+              />
             </Paper>
           </Grid>
           <Grid item xs={4}>
@@ -63,3 +93,21 @@ const App: FC = () => {
 };
 
 export default App;
+
+// getQA(cb) {
+//     const { TOKEN } = this.props;
+//     axios
+//       .get(
+//         `/search`,
+//          headers:  {}
+//       )
+//       .then((obj) => {
+//         this.setState({ data: obj.data.results });
+//       })
+//       .then((results) => {
+//         if (cb) {
+//           cb(results);
+//         }
+//       })
+//       .catch((err) => console.error(err));
+//   }
