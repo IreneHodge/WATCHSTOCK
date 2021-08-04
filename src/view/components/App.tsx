@@ -8,6 +8,7 @@ import { SampleData } from "../../sampleData";
 import SearchItem from "./SearchItem";
 import SearchBar from "./SearchBar";
 import WatchList from "./WatchList";
+import { CompanyData } from "../../interfaces";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,21 +24,11 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const App: FC = () => {
-  const [companyData, setCompanyData] = useState(Object);
+  const [companyData, setCompanyData] = useState<CompanyData>();
   const [search, setSearch] = useState(``);
   const classes = useStyles();
 
   const companySearch: Function = () => {
-    // let config: any = {
-    //   method: "get",
-    //   options: {
-    //     params: {
-    //       search: search,
-    //     },
-    //   },
-    //   url: `http://localhost:3000/search`,
-    //   headers: {},
-    // };
     let options: any = {
       params: {
         search: search,
@@ -45,9 +36,9 @@ const App: FC = () => {
     };
 
     axios
-      .get(`http://localhost:3000/search`, options)
-      .then((data: Object) => {
-        console.log(data);
+      .get<CompanyData>(`http://localhost:3000/search`, options)
+      .then((data) => {
+        setCompanyData(data.data);
       })
       .catch((err: Error) => {
         console.log(err);
@@ -84,7 +75,9 @@ const App: FC = () => {
             </Paper>
           </Grid>
           <Grid item xs={12}>
-            <SearchItem />
+            {companyData === undefined ? null : (
+              <SearchItem companyData={companyData} />
+            )}
           </Grid>
         </Grid>
       </div>
@@ -93,21 +86,3 @@ const App: FC = () => {
 };
 
 export default App;
-
-// getQA(cb) {
-//     const { TOKEN } = this.props;
-//     axios
-//       .get(
-//         `/search`,
-//          headers:  {}
-//       )
-//       .then((obj) => {
-//         this.setState({ data: obj.data.results });
-//       })
-//       .then((results) => {
-//         if (cb) {
-//           cb(results);
-//         }
-//       })
-//       .catch((err) => console.error(err));
-//   }
