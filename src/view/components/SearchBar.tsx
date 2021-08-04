@@ -3,18 +3,23 @@ import React, { FC } from "react";
 interface SearchBarProps {
   search: String;
   setSearch: Function;
+  companySearch: Function;
 }
 
-const SearchBar: FC<SearchBarProps> = ({ search, setSearch }) => {
+const SearchBar: FC<SearchBarProps> = ({
+  search,
+  setSearch,
+  companySearch,
+}) => {
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSearch(e);
+    companySearch();
   };
   return (
     <form
       onSubmit={(e) => {
         submit(e);
-        console.log(search);
       }}
     >
       <input
