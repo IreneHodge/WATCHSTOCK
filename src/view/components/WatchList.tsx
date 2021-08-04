@@ -12,6 +12,11 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import FolderIcon from "@material-ui/icons/Folder";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { CompanyData } from "../../interfaces";
+
+interface WatchListProps {
+  companyData: CompanyData;
+}
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
