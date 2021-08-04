@@ -1,19 +1,63 @@
-import React, { FC } from "react";
+import React, { FC, useState, useEffect } from "react";
+import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import stockwatch from "../images/stockwatch.svg";
 import { SampleData } from "../../sampleData";
-import AddToWatchList from "./AddToWatchList";
+import SearchItem from "./SearchItem";
+import SearchBar from "./SearchBar";
+import WatchList from "./WatchList";
 
-interface AppProps {
-  title: string;
-  subtitle: string;
-}
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+    },
+    paper: {
+      padding: 0,
+      textAlign: "center",
+      color: theme.palette.text.secondary,
+    },
+  })
+);
 
-const App: FC<AppProps> = ({ title, subtitle }) => {
-  console.log(SampleData);
+const App: FC = () => {
+  const [ticker, setTicker] = useState(String);
+  const [search, setSearch] = useState(``);
+  const classes = useStyles();
+
+  //   const checkWatchList
+
+  useEffect(() => {
+    console.log("successfully loaded page");
+    //ask server for database for saved watchlist
+    //checkWatchList();
+  }, []);
+
   return (
     <>
-      <h1>{title}</h1>
-      <h2>{subtitle}</h2>
-      <AddToWatchList />
+      <div className={classes.root}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>
+              <img src={stockwatch} alt="Stock Watch Company Banner" />
+            </Paper>
+          </Grid>
+          <Grid item xs={8}>
+            <Paper className={classes.paper}>
+              <SearchBar setSearch={setSearch} search={search} />
+            </Paper>
+          </Grid>
+          <Grid item xs={4}>
+            <Paper className={classes.paper}>
+              <WatchList />
+            </Paper>
+          </Grid>
+          <Grid item xs={12}>
+            <SearchItem />
+          </Grid>
+        </Grid>
+      </div>
     </>
   );
 };
