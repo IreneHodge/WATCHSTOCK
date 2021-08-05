@@ -11,7 +11,6 @@
   - [Installation](#Installation)
   - [Operation](#Operation)
   - [Preview](#Preview)
-    - [Screenshots](#Screenshots)
   - [Process](#Process)
   - [License](#License)
 
@@ -38,7 +37,7 @@
 
 > ### Introduction
 >
-> STOCK WATCH was built as a full-stack application utilizing Typescript. It is configured for Front-end development using ReactJS library with the help of both Typescript language and the Material-UI library. For Back-end development it was built using MongoDB as the Database and ExpressJS with the help of Typescript.
+> WATCH STOCK was built as a full-stack application utilizing Typescript. It is configured for Front-end development using ReactJS library with the help of both Typescript language and the Material-UI library. For Back-end development it was built using MongoDB as the Database and ExpressJS with the help of Typescript.
 
 > Check out [Operation](#Operation) for an overview of the services' functionality or the [Preview](#Preview) below for a demonstration of all features.
 
@@ -72,12 +71,12 @@
 
 > ### Integration
 >
-> - STOCK WATCH is integrated with a backend developed in MongoDB
-> - STOCK WATCH is integrated with the 3rd party RESTful API from polygon.io
+> - WATCH STOCK is integrated with a backend developed in MongoDB
+> - WATCH STOCK is integrated with the 3rd party RESTful API from polygon.io
 
 > ### Material-UI Usage
 >
-> STOCK WATCH makes use of the following 5 UI components from the material-ui/@core library
+> WATCH STOCK makes use of the following 5 UI components from the material-ui/@core library
 >
 > - Material-UI Grid
 > - Material-UI Button
@@ -87,21 +86,17 @@
 
 > ### Self-Constructed Reusable Component
 >
-> - In STOCK WATCH the search bar was constructed by me as a reusable component
+> - In WATCH STOCK the search bar was constructed by me as a reusable component
 
 ### Preview
 
-![Preview](demo/APP DEMO.gif)
-
-### Screenshots
-
-![FEATURE](demo/FEATURE.png "FEATURE NAME")
-![FEATURE](demo/FEATURE.png "FEATURE NAME")
-![FEATURE](demo/FEATURE.png "FEATURE NAME")
+![SEARCH](READMEImages/search.gif "SEARCH")
+![ADD](READMEImages/addWatchlist.gif "ADD")
+![DELETE](READMEImages/delete.gif "DELETE")
 
 ### Process
 
-![DIAGRAM](READMEImages/SWMockDesign.png)
+![MOCKUP](READMEImages/SWMockDesign.png "Mock design created in Canva")
 
 ### License
 
