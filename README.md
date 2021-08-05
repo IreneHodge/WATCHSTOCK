@@ -82,7 +82,7 @@
 > - Material-UI Button
 > - Material-UI List
 > - Material-UI CSS-Baseline
-> - Material-UI
+> - Material-UI Divider
 
 > ### Self-Constructed Reusable Component
 >

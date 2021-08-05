@@ -43,6 +43,7 @@ const WatchlistItem: FC<WatchlistItemProps> = ({
 
   return (
     <ListItem key={i}>
+      <Divider />
       <ListItemAvatar>
         <Avatar>{company.symbol}</Avatar>
       </ListItemAvatar>
