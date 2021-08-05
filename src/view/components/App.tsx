@@ -74,13 +74,11 @@ const App: FC = () => {
             </Paper>
           </Grid>
           <Grid item xs={8}>
-            <Paper className={classes.paper}>
-              <SearchBar
-                companySearch={companySearch}
-                setSearch={setSearch}
-                search={search}
-              />
-            </Paper>
+            <SearchBar
+              companySearch={companySearch}
+              setSearch={setSearch}
+              search={search}
+            />
           </Grid>
           <Grid item xs={4}>
             <Paper className={classes.paper}>
