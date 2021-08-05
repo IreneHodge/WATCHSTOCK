@@ -4,11 +4,11 @@ import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import stockwatch from "../images/stockwatch.svg";
-import { SampleData } from "../../sampleData";
 import SearchItem from "./SearchItem";
 import SearchBar from "./SearchBar";
 import Watchlist from "./Watchlist";
 import { CompanyData } from "../../interfaces";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -65,6 +65,7 @@ const App: FC = () => {
 
   return (
     <>
+      <CssBaseline />
       <div className={classes.root}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
