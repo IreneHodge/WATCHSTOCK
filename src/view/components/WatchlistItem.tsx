@@ -9,6 +9,7 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import FolderIcon from "@material-ui/icons/Folder";
 import DeleteIcon from "@material-ui/icons/Delete";
+import Divider from "@material-ui/core/Divider";
 import axios from "axios";
 
 interface WatchlistItemProps {
@@ -58,6 +59,7 @@ const WatchlistItem: FC<WatchlistItemProps> = ({
           <DeleteIcon />
         </IconButton>
       </ListItemSecondaryAction>
+      <Divider />
     </ListItem>
   );
 };

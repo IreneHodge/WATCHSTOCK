@@ -10,8 +10,7 @@ interface SearchBarProps {
 
 const SearchBarStyle = styled.div`
   .search-bar {
-    margin-left: 30px;
-    display: inline;
+    margin-left: 20px;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 4px 1px rgba(0, 0, 0, 0.18);
   }
 
@@ -22,7 +21,7 @@ const SearchBarStyle = styled.div`
 
   .search-bar input {
     margin-left: 5px;
-    width: 80%;
+    width: 60vw;
     border: none;
     height: 80px;
     font-size: 1.5rem;
