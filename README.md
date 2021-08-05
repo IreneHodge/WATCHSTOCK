@@ -90,9 +90,16 @@
 
 ### Preview
 
-![SEARCH](READMEImages/search.gif "SEARCH")
-![ADD](READMEImages/addWatchlist.gif "ADD")
-![DELETE](READMEImages/delete.gif "DELETE")
+- User can search Company by symbol(ticker)
+
+  > - ![SEARCH](READMEImages/search.gif "SEARCH")
+
+- User can save Company Stock to Watchlist
+
+  > - ![ADD](READMEImages/addWatchlist.gif "ADD")
+
+- User can delete Company Stock from Watchlist
+  > - ![DELETE](READMEImages/delete.gif "DELETE")
 
 ### Process
 
