@@ -3,6 +3,7 @@ import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
+import Typography from "@material-ui/core/Typography";
 import AddToWatchList from "./AddToWatchList";
 import { CompanyData } from "../../interfaces";
 
@@ -15,6 +16,9 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
+      "& > * + *": {
+        marginLeft: theme.spacing(2),
+      },
     },
     paper: {
       padding: theme.spacing(2),
