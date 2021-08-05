@@ -7,7 +7,7 @@ import stockwatch from "../images/stockwatch.svg";
 import { SampleData } from "../../sampleData";
 import SearchItem from "./SearchItem";
 import SearchBar from "./SearchBar";
-import WatchList from "./WatchList";
+import Watchlist from "./Watchlist";
 import { CompanyData } from "../../interfaces";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const App: FC = () => {
   const [companyData, setCompanyData] = useState<CompanyData>();
+  const [watchlist, setWatchlist] = useState<[CompanyData]>();
   const [search, setSearch] = useState(``);
   const classes = useStyles();
 
@@ -45,10 +46,21 @@ const App: FC = () => {
       });
   };
 
+  const getWatchlist: Function = () => {
+    axios
+      .get<[CompanyData]>(`/watchlist`)
+      .then((data) => {
+        setWatchlist(data.data);
+        console.log(data.data);
+      })
+      .catch((err: Error) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     console.log("successfully loaded page");
-    //ask server for database for saved watchlist
-    //checkWatchList();
+    getWatchlist();
   }, []);
 
   return (
@@ -71,12 +83,17 @@ const App: FC = () => {
           </Grid>
           <Grid item xs={4}>
             <Paper className={classes.paper}>
-              <WatchList />
+              {watchlist === undefined ? null : (
+                <Watchlist watchlist={watchlist} getWatchlist={getWatchlist} />
+              )}
             </Paper>
           </Grid>
           <Grid item xs={12}>
             {companyData === undefined ? null : (
-              <SearchItem companyData={companyData} />
+              <SearchItem
+                companyData={companyData}
+                getWatchlist={getWatchlist}
+              />
             )}
           </Grid>
         </Grid>
