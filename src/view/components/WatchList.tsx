@@ -1,21 +1,14 @@
-import React from "react";
+import React, { FC } from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import ListItemText from "@material-ui/core/ListItemText";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import FolderIcon from "@material-ui/icons/Folder";
-import DeleteIcon from "@material-ui/icons/Delete";
 import { CompanyData } from "../../interfaces";
+import WatchlistItem from "./WatchlistItem";
 
-interface WatchListProps {
-  companyData: CompanyData;
+interface WatchlistProps {
+  watchlist: [CompanyData];
+  getWatchlist: Function;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -32,15 +25,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
-function generate(element: React.ReactElement) {
-  return [0, 1, 2].map((value) =>
-    React.cloneElement(element, {
-      key: value,
-    })
-  );
-}
 
-export default function InteractiveList() {
+const Watchlist: FC<WatchlistProps> = ({ watchlist, getWatchlist }) => {
   const classes = useStyles();
   const [dense, setDense] = React.useState(false);
   const [secondary, setSecondary] = React.useState(false);
@@ -53,27 +39,20 @@ export default function InteractiveList() {
         </Typography>
         <div className={classes.demo}>
           <List dense={dense}>
-            {generate(
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar>
-                    <FolderIcon />
-                  </Avatar>
-                </ListItemAvatar>
-                <ListItemText
-                  primary="WATCHED STOCK"
-                  secondary={secondary ? "Secondary text" : null}
+            {watchlist.map((company, i) => {
+              return (
+                <WatchlistItem
+                  company={company}
+                  i={i}
+                  getWatchlist={getWatchlist}
                 />
-                <ListItemSecondaryAction>
-                  <IconButton edge="end" aria-label="delete">
-                    <DeleteIcon />
-                  </IconButton>
-                </ListItemSecondaryAction>
-              </ListItem>
-            )}
+              );
+            })}
           </List>
         </div>
       </Grid>
     </div>
   );
-}
+};
+
+export default Watchlist;
