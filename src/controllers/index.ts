@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, "..", "../build")));
 
 app.use("/search", polygonRoutes);
 
-app.use("/savedCompanies", dbRoutes);
+app.use("/watchList", dbRoutes);
 
 app.get("/", (req: Request, res: Response) => {
   //handle root
