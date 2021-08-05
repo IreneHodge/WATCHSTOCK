@@ -1,6 +1,6 @@
-# Stock-A-Roo
+# WATCH STOCK
 
-> AN APPLICATION TO STAY CURRENT ON STOCKS.
+> AN APPLICATION TO KEEP WATCH OF STOCKS
 
 #### Table of Contents
 
@@ -13,7 +13,6 @@
   - [Preview](#Preview)
     - [Screenshots](#Screenshots)
   - [Process](#Process)
-  - [Testing](#Testing)
   - [License](#License)
 
 ### Technologies
@@ -22,8 +21,8 @@
 | ---------- | ------------ | ---------------- |
 | NodeJS     | axios        | nodemon          |
 | ReactJS    | ReactJS      | prop-types       |
-| ExpressJS  | React-DOM    | eslint -airbnb   |
-| JavaScript | ExpressJS    | Webpack/Babel    |
+| ExpressJS  | React-DOM    | Webpack/Babel    |
+| JavaScript | ExpressJS    |                  |
 | TypeScript |              |                  |
 | MongoDB    |              |                  |
 
@@ -35,13 +34,17 @@
 >
 > > Model: Data
 > > View: UI
-> > Controller: Request - Response handler
+> > Controller: Request - Response handlers
 
-> SUMMARY OF ROLE/GOAL
-
-SUMMARY OF IMPLEMENTATION
+> ### Introduction
+>
+> STOCK WATCH was built as a full-stack application utilizing Typescript. It is configured for Front-end development using ReactJS library with the help of both Typescript language and the Material-UI library. For Back-end development it was built using MongoDB as the Database and ExpressJS with the help of Typescript.
 
 > Check out [Operation](#Operation) for an overview of the services' functionality or the [Preview](#Preview) below for a demonstration of all features.
+
+> ### Prerequisite
+>
+> First, make sure that you have MongoDB installed on your machine and in your terminal start mongo.
 
 ### Installation
 
@@ -52,13 +55,39 @@ SUMMARY OF IMPLEMENTATION
 
 3. From within the root directory:
 
-`npm start`
+`npm run build:dev `
+`npm run server`
 
 4. View in browser:
 
 `http://localhost:3000`
 
 ### Operation
+
+> ### User Stories
+>
+> - User can search Company by symbol(ticker)
+> - User can save Company Stock to Watchlist
+> - User can delete Company Stock from Watchlist
+
+> ### Integration
+>
+> - STOCK WATCH is integrated with a backend developed in MongoDB
+> - STOCK WATCH is integrated with the 3rd party RESTful API from polygon.io
+
+> ### Material-UI Usage
+>
+> STOCK WATCH makes use of the following 5 UI components from the material-ui/@core library
+>
+> - Material-UI Grid
+> - Material-UI Button
+> - Material-UI List
+> - Material-UI CSS-Baseline
+> - Material-UI
+
+> ### Self-Constructed Reusable Component
+>
+> - In STOCK WATCH the search bar was constructed by me as a reusable component
 
 ### Preview
 
@@ -75,14 +104,6 @@ SUMMARY OF IMPLEMENTATION
 ![DIAGRAM](demo/DIAGRAM.png "Diagram Here")
 ![DIAGRAM](demo/DIAGRAM.png "Diagram Here")
 ![DIAGRAM](demo/DIAGRAM.png "Diagram Here")
-
-### Testing
-
-This application was tested with Jest & Supertest.
-
-From within the root directory:
-
-npm test
 
 ### License
 
