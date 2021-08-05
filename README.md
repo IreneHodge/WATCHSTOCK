@@ -101,9 +101,7 @@
 
 ### Process
 
-![DIAGRAM](demo/DIAGRAM.png "Diagram Here")
-![DIAGRAM](demo/DIAGRAM.png "Diagram Here")
-![DIAGRAM](demo/DIAGRAM.png "Diagram Here")
+![DIAGRAM](READMEImages/SWMockDesign.png)
 
 ### License
 
