@@ -7,6 +7,7 @@ import { CompanyData } from "../../interfaces";
 
 interface SearchItemProps {
   companyData: CompanyData;
+  getWatchlist: Function;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const SearchItem: FC<SearchItemProps> = ({ companyData }) => {
+const SearchItem: FC<SearchItemProps> = ({ companyData, getWatchlist }) => {
   const classes = useStyles();
 
   return (
@@ -47,7 +48,10 @@ const SearchItem: FC<SearchItemProps> = ({ companyData }) => {
           <Paper className={classes.paper}>High: {companyData.high}</Paper>
           <Paper className={classes.paper}>Low: {companyData.low}</Paper>
           <Paper className={classes.paper}>Close: {companyData.close}</Paper>
-          <AddToWatchList />
+          <AddToWatchList
+            companyData={companyData}
+            getWatchlist={getWatchlist}
+          />
         </Grid>
       </Grid>
     </div>
