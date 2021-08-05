@@ -1,5 +1,5 @@
 export interface CompanyData {
-  logo: String;
+  logo: string;
   ceo: String;
   url: String;
   description: String;
